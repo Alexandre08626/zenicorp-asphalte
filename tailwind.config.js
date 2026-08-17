@@ -7,7 +7,7 @@ module.exports = {
         zenicorp: {
           black: '#000000',
           silver: '#C0C0C0',
-          gold: '#D4AF37',
+          gold: '#9CA3AF',
           white: '#FFFFFF',
           darkGray: '#1A1A1A',
           mediumGray: '#333333',
