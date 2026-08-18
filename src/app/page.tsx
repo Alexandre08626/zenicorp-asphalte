@@ -14,38 +14,47 @@ import {
   Paintbrush,
 } from 'lucide-react';
 
+const px = (id: number, w = 800) =>
+  `https://images.pexels.com/photos/${id}/pexels-photo-${id}.jpeg?auto=compress&cs=tinysrgb&w=${w}`;
+
+const HERO_IMG = px(12274274, 1920);
+
 const services = [
   {
     icon: Droplets,
     title: 'Scellant d\'asphalte',
     desc: 'Protection professionnelle de votre entrée d\'asphalte contre l\'eau, le sel et les UV. Fini uniforme qui dure.',
     features: ['Nettoyage haute pression', 'Réparation des fissures', '2 couches de scellant', 'Garantie 2 ans'],
+    img: px(14658667),
   },
   {
     icon: Wrench,
     title: 'Réparation de fissures',
     desc: 'Traitement des fissures avant qu\'elles ne deviennent des problèmes majeurs. Intervention rapide.',
     features: ['Détection complète', 'Produits flexible pour climats', 'Prévention des nids-de-poule', 'Résultat invisible'],
+    img: px(29422321),
   },
   {
     icon: Truck,
     title: 'Pavage & resurfaçage',
     desc: 'Pavage neuf ou resurfaçage complet de vos entrées résidentielles et stationnements commerciaux.',
     features: ['Asphalte certifié', 'Compactage professionnel', 'Pente et drainage optimisés', 'Finitions soignées'],
+    img: px(10000255),
   },
   {
     icon: Building2,
     title: 'Commercial',
     desc: 'Stationnements, entrées de commerce et espaces industriels. Planification hors heures d\'ouverture.',
     features: ['Marquage au sol', 'Borne et bordures', 'Travail de nuit possible', 'Minimisation des perturbations'],
+    img: px(19550925),
   },
 ];
 
 const realisations = [
-  { title: 'Entrée double - Québec', desc: 'Scellant + réparation fissures', value: '1 800 $' },
-  { title: 'Stationnement 40 places - Lévis', desc: 'Pavage complet + marquage', value: '48 000 $' },
-  { title: 'Entrée commerciale - Montréal', desc: 'Resurfaçage 3 pouces', value: '15 500 $' },
-  { title: 'Allée privée - Trois-Rivières', desc: 'Pavage neuf + bordures', value: '12 000 $' },
+  { title: 'Entrée double - Québec', desc: 'Scellant + réparation fissures', value: '1 800 $', img: px(5768733, 600) },
+  { title: 'Stationnement 40 places - Lévis', desc: 'Pavage complet + marquage', value: '48 000 $', img: px(29181420, 600) },
+  { title: 'Entrée commerciale - Montréal', desc: 'Resurfaçage 3 pouces', value: '15 500 $', img: px(11685816, 600) },
+  { title: 'Allée privée - Trois-Rivières', desc: 'Pavage neuf + bordures', value: '12 000 $', img: px(1176481, 600) },
 ];
 
 const faqs = [
@@ -72,7 +81,8 @@ export default function AsphaltPage() {
     <>
       {/* HERO */}
       <section className="relative bg-zenicorp-black text-white">
-        <div className="absolute inset-0 bg-gradient-to-br from-zenicorp-black via-zenicorp-darkGray to-zenicorp-black"></div>
+        <img src={HERO_IMG} alt="Machine de pavage appliquant de l'asphalte sur une route" className="absolute inset-0 w-full h-full object-cover opacity-40" />
+        <div className="absolute inset-0 bg-gradient-to-r from-zenicorp-black via-zenicorp-black/80 to-zenicorp-black/30"></div>
         <div className="absolute inset-0 opacity-10" style={{ backgroundImage: 'repeating-linear-gradient(45deg, #475569 0px, #475569 1px, transparent 1px, transparent 60px)' }}></div>
         <div className="container-zenicorp relative py-20 lg:py-28">
           <div className="max-w-3xl animate-slide-up">
@@ -153,19 +163,27 @@ export default function AsphaltPage() {
           </div>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             {services.map((service) => (
-              <div key={service.title} className="card p-6">
-                <div className="w-12 h-12 bg-zenicorp-black flex items-center justify-center mb-4">
-                  <service.icon className="w-6 h-6 text-zenicorp-gold" />
+              <div key={service.title} className="card overflow-hidden p-0 group">
+                <div className="relative h-44 overflow-hidden">
+                  <img src={service.img} alt={service.title} loading="lazy" className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent"></div>
+                  <div className="absolute bottom-3 left-4 flex items-center gap-3">
+                    <div className="w-10 h-10 bg-zenicorp-gold flex items-center justify-center">
+                      <service.icon className="w-5 h-5 text-zenicorp-black" />
+                    </div>
+                    <h3 className="text-white font-semibold drop-shadow">{service.title}</h3>
+                  </div>
                 </div>
-                <h3 className="heading-3 mb-3">{service.title}</h3>
-                <p className="body-base text-sm mb-4">{service.desc}</p>
-                <ul className="space-y-2">
-                  {service.features.map((f) => (
-                    <li key={f} className="flex items-center gap-2 text-sm text-zenicorp-mediumGray">
-                      <CheckCircle2 className="w-4 h-4 text-zenicorp-gold" /> {f}
-                    </li>
-                  ))}
-                </ul>
+                <div className="p-6">
+                  <p className="body-base text-sm mb-4">{service.desc}</p>
+                  <ul className="space-y-2">
+                    {service.features.map((f) => (
+                      <li key={f} className="flex items-center gap-2 text-sm text-zenicorp-mediumGray">
+                        <CheckCircle2 className="w-4 h-4 text-zenicorp-gold" /> {f}
+                      </li>
+                    ))}
+                  </ul>
+                </div>
               </div>
             ))}
           </div>
@@ -181,13 +199,16 @@ export default function AsphaltPage() {
           </div>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
             {realisations.map((r) => (
-              <div key={r.title} className="card p-6">
-                <div className="h-32 bg-gradient-to-br from-zenicorp-darkGray to-zenicorp-black flex items-center justify-center mb-4">
-                  <Paintbrush className="w-10 h-10 text-zenicorp-gold" />
+              <div key={r.title} className="card overflow-hidden p-0 group">
+                <div className="relative h-40 overflow-hidden">
+                  <img src={r.img} alt={r.title} loading="lazy" className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
+                  <span className="absolute top-3 right-3 bg-zenicorp-gold text-zenicorp-black text-xs font-bold px-2 py-1">{r.value}</span>
                 </div>
-                <h3 className="font-semibold text-sm">{r.title}</h3>
-                <p className="text-xs text-zenicorp-mediumGray mt-1">{r.desc}</p>
-                <p className="text-zenicorp-gold font-bold text-sm mt-2">{r.value}</p>
+                <div className="p-5">
+                  <h3 className="font-semibold text-sm">{r.title}</h3>
+                  <p className="text-xs text-zenicorp-mediumGray mt-1">{r.desc}</p>
+                </div>
               </div>
             ))}
           </div>
@@ -207,7 +228,7 @@ export default function AsphaltPage() {
               { n: '02', t: 'Évaluation sur place', d: 'Inspection gratuite de votre entrée ou stationnement. Recommandations claires.' },
               { n: '03', t: 'Travaux', d: 'Exécution par nos équipes certifiées avec équipement professionnel.' },
             ].map((s) => (
-              <div key={s.n} className="border border-zenicorp-mediumGray p-6">
+              <div key={s.n} className="border border-zenicorp-mediumGray p-6 hover:border-zenicorp-gold/60 transition-colors">
                 <span className="font-heading text-5xl text-zenicorp-gold font-bold">{s.n}</span>
                 <h3 className="text-xl font-semibold mt-4 mb-2">{s.t}</h3>
                 <p className="text-sm text-zenicorp-silver">{s.d}</p>
