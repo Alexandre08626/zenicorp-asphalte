@@ -326,8 +326,8 @@ export default function AsphaltPage() {
 
         <div className="absolute top-1/3 right-10 md:right-20 hidden md:block">
           <div className="p-6 bg-white/10 backdrop-blur-xl rounded-2xl border border-white/20 text-right">
-            <p className="text-5xl font-black text-amber-400">350+</p>
-            <p className="text-white/60">Surfaces pavees</p>
+            <p className="text-5xl font-black text-amber-400">RBQ</p>
+            <p className="text-white/60">Entrepreneur certifie</p>
           </div>
         </div>
 
