@@ -314,7 +314,7 @@ export default function AsphaltPage() {
               </div>
               <div className="flex items-center gap-2 text-white/60">
                 <MapPin className="w-5 h-5 text-amber-400" />
-                <span>Quebec & Environs</span>
+                <span>Partout au Québec</span>
               </div>
               <div className="flex items-center gap-2 text-white/60">
                 <Clock className="w-5 h-5 text-amber-400" />
