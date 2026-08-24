@@ -1,4 +1,4 @@
-'use client';
+﻿'use client';
 
 import { useState, useEffect } from 'react';
 import {
@@ -72,23 +72,23 @@ export default function AsphaltPage() {
   };
 
   const commercialOptions = [
-    { name: 'Stationnement / Parking', image: '/images/asphalt-parking.jpg', price: 3.50 },
-    { name: 'Voie d\'acces / Allée', image: '/images/asphalt-road.jpg', price: 3.50 },
-    { name: 'Resurfacage complet', image: '/images/asphalt-construction.jpg', price: 5.50 },
-    { name: 'Reparation de fissures', image: '/images/asphalt-worker.jpg', price: 3.50 },
+    { name: 'Stationnement / Parking', image: '/images/asphalt-parking2.jpg', price: 3.50 },
+    { name: 'Voie d\'acces / AllÃ©e', image: '/images/asphalt-road.jpg', price: 3.50 },
+    { name: 'Resurfacage complet', image: '/images/asphalt-site.jpg', price: 5.50 },
+    { name: 'Reparation de fissures', image: '/images/asphalt-worker2.jpg', price: 3.50 },
   ];
 
   const residentialOptions = [
-    { name: 'Entrée / Driveway', image: '/images/asphalt-driveway.jpg', price: 4.50 },
-    { name: 'Chemin / Allée', image: '/images/asphalt-road.jpg', price: 4.50 },
-    { name: 'Stationnement résidentiel', image: '/images/asphalt-parking.jpg', price: 4.50 },
-    { name: 'Réparation / Bouche-trous', image: '/images/asphalt-construction.jpg', price: 4.50 },
+    { name: 'EntrÃ©e / Driveway', image: '/images/asphalt-driveway2.jpg', price: 4.50 },
+    { name: 'Chemin / AllÃ©e', image: '/images/asphalt-road.jpg', price: 4.50 },
+    { name: 'Stationnement rÃ©sidentiel', image: '/images/asphalt-parking2.jpg', price: 4.50 },
+    { name: 'RÃ©paration / Bouche-trous', image: '/images/asphalt-site.jpg', price: 4.50 },
   ];
 
   const submitLeadToDashboard = async () => {
     const surface = Number.parseFloat(sqft || '0');
     const total = surface * pricePerSqft;
-    const finishLabel = finishType === 'residential' ? 'Asphalte résidentiel' : 'Asphalte commercial';
+    const finishLabel = finishType === 'residential' ? 'Asphalte rÃ©sidentiel' : 'Asphalte commercial';
 
     const leadData = {
       name: clientName,
@@ -116,7 +116,7 @@ export default function AsphaltPage() {
   const downloadQuotePdf = async () => {
     const surface = Number.parseFloat(sqft || '0');
     const total = surface * pricePerSqft;
-    const finishLabel = finishType === 'residential' ? 'Asphalte résidentiel' : 'Asphalte commercial';
+    const finishLabel = finishType === 'residential' ? 'Asphalte rÃ©sidentiel' : 'Asphalte commercial';
     const now = new Date();
     const dateStr = now.toLocaleDateString('fr-CA', { year: 'numeric', month: 'long', day: 'numeric' });
 
@@ -192,9 +192,9 @@ export default function AsphaltPage() {
 
     doc.setTextColor(60, 60, 60);
     doc.setFontSize(10);
-    doc.text('✓ Garantie 1 an contre le drainage', 20, 250);
-    doc.text('✓ Compactage professionnel', 20, 258);
-    doc.text('✓ Bitume haute qualite', 20, 266);
+    doc.text('âœ“ Garantie 1 an contre le drainage', 20, 250);
+    doc.text('âœ“ Compactage professionnel', 20, 258);
+    doc.text('âœ“ Bitume haute qualite', 20, 266);
 
     doc.setTextColor(120, 120, 120);
     doc.setFontSize(9);
@@ -254,7 +254,7 @@ export default function AsphaltPage() {
       <section className="relative h-screen flex flex-col justify-end pb-20">
         <div className="absolute inset-0">
           <img
-            src="/images/asphalt-hero.jpg"
+            src="/images/asphalt-roller.jpg"
             alt="Pavage d'asphalte premium"
             className="w-full h-full object-cover"
           />
@@ -354,8 +354,8 @@ export default function AsphaltPage() {
                   className={`p-6 rounded-2xl border-2 transition-all text-left ${finishType === 'residential' ? 'border-amber-500 bg-amber-500/10' : 'border-white/10 bg-white/5 hover:border-white/20'}`}
                 >
                   <div className="font-bold text-xl mb-2">Residentiel</div>
-                  <div className="text-3xl font-black text-amber-400">$4.50<span className="text-base text-white/60 font-normal">/pied²</span></div>
-                  <p className="text-sm text-white/40 mt-2">Entrepie, allée, patio</p>
+                  <div className="text-3xl font-black text-amber-400">$4.50<span className="text-base text-white/60 font-normal">/piedÂ²</span></div>
+                  <p className="text-sm text-white/40 mt-2">Entrepie, allÃ©e, patio</p>
                 </button>
 
                 <button
@@ -363,7 +363,7 @@ export default function AsphaltPage() {
                   className={`p-6 rounded-2xl border-2 transition-all text-left ${finishType === 'commercial' ? 'border-amber-500 bg-amber-500/10' : 'border-white/10 bg-white/5 hover:border-white/20'}`}
                 >
                   <div className="font-bold text-xl mb-2">Commercial</div>
-                  <div className="text-3xl font-black text-amber-400">$3.50<span className="text-base text-white/60 font-normal">/pied²</span></div>
+                  <div className="text-3xl font-black text-amber-400">$3.50<span className="text-base text-white/60 font-normal">/piedÂ²</span></div>
                   <p className="text-sm text-white/40 mt-2">Parking, voies, grandes surfaces</p>
                 </button>
               </div>
@@ -431,8 +431,8 @@ export default function AsphaltPage() {
           </p>
 
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6">
-            <div className="relative aspect-[4/3] rounded-3xl overflow-hidden group cursor-pointer" onClick={() => openLightbox('/images/asphalt-driveway.jpg', 'Entrepie residentielle')}>
-              <img src="/images/asphalt-driveway.jpg" alt="Entrepie residentielle" className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" />
+            <div className="relative aspect-[4/3] rounded-3xl overflow-hidden group cursor-pointer" onClick={() => openLightbox('/images/asphalt-driveway2.jpg', 'Entrepie residentielle')}>
+              <img src="/images/asphalt-driveway2.jpg" alt="Entrepie residentielle" className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" />
               <div className="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent" />
               <div className="absolute bottom-6 sm:bottom-8 left-6 sm:left-8">
                 <p className="text-2xl sm:text-3xl font-black text-white">Entrepie</p>
@@ -440,8 +440,8 @@ export default function AsphaltPage() {
               </div>
             </div>
 
-            <div className="relative aspect-[4/3] rounded-3xl overflow-hidden group cursor-pointer" onClick={() => openLightbox('/images/asphalt-parking.jpg', 'Parking commercial')}>
-              <img src="/images/asphalt-parking.jpg" alt="Parking commercial" className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" />
+            <div className="relative aspect-[4/3] rounded-3xl overflow-hidden group cursor-pointer" onClick={() => openLightbox('/images/asphalt-parking2.jpg', 'Parking commercial')}>
+              <img src="/images/asphalt-parking2.jpg" alt="Parking commercial" className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" />
               <div className="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent" />
               <div className="absolute bottom-6 sm:bottom-8 left-6 sm:left-8">
                 <p className="text-2xl sm:text-3xl font-black text-white">Parking</p>
@@ -453,13 +453,13 @@ export default function AsphaltPage() {
               <img src="/images/asphalt-road.jpg" alt="Voie de circulation" className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" />
               <div className="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent" />
               <div className="absolute bottom-6 sm:bottom-8 left-6 sm:left-8">
-                <p className="text-2xl sm:text-3xl font-black text-white">Voie d'accès</p>
+                <p className="text-2xl sm:text-3xl font-black text-white">Voie d'accÃ¨s</p>
                 <p className="text-amber-400">Acces & allees</p>
               </div>
             </div>
 
-            <div className="relative aspect-[4/3] rounded-3xl overflow-hidden group cursor-pointer" onClick={() => openLightbox('/images/asphalt-worker.jpg', 'Pose professionnelle')}>
-              <img src="/images/asphalt-worker.jpg" alt="Pose professionnelle" className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" />
+            <div className="relative aspect-[4/3] rounded-3xl overflow-hidden group cursor-pointer" onClick={() => openLightbox('/images/asphalt-worker2.jpg', 'Pose professionnelle')}>
+              <img src="/images/asphalt-worker2.jpg" alt="Pose professionnelle" className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" />
               <div className="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent" />
               <div className="absolute bottom-6 sm:bottom-8 left-6 sm:left-8">
                 <p className="text-2xl sm:text-3xl font-black text-white">Pose professionnelle</p>
@@ -475,19 +475,19 @@ export default function AsphaltPage() {
         <div className="max-w-7xl mx-auto">
           <h2 className="text-4xl font-black text-center mb-12">Nos <span className="text-amber-400">Realisations</span></h2>
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6">
-            <div className="relative aspect-[4/3] rounded-3xl overflow-hidden group cursor-pointer" onClick={() => openLightbox('/images/asphalt-driveway.jpg', 'Allée résidentielle neuve')}>
-              <img src="/images/asphalt-driveway.jpg" alt="Allée résidentielle neuve" className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" />
+            <div className="relative aspect-[4/3] rounded-3xl overflow-hidden group cursor-pointer" onClick={() => openLightbox('/images/asphalt-driveway2.jpg', 'AllÃ©e rÃ©sidentielle neuve')}>
+              <img src="/images/asphalt-driveway2.jpg" alt="AllÃ©e rÃ©sidentielle neuve" className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" />
               <div className="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent" />
               <div className="absolute bottom-6 sm:bottom-8 left-6 sm:left-8">
-                <p className="text-2xl sm:text-3xl font-black text-white">Allée neuve</p>
-                <p className="text-amber-400">Résidentiel</p>
+                <p className="text-2xl sm:text-3xl font-black text-white">AllÃ©e neuve</p>
+                <p className="text-amber-400">RÃ©sidentiel</p>
               </div>
             </div>
-            <div className="relative aspect-[4/3] rounded-3xl overflow-hidden group cursor-pointer" onClick={() => openLightbox('/images/asphalt-construction.jpg', 'Resurfaçage commercial')}>
-              <img src="/images/asphalt-construction.jpg" alt="Resurfaçage commercial" className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" />
+            <div className="relative aspect-[4/3] rounded-3xl overflow-hidden group cursor-pointer" onClick={() => openLightbox('/images/asphalt-site.jpg', 'ResurfaÃ§age commercial')}>
+              <img src="/images/asphalt-site.jpg" alt="ResurfaÃ§age commercial" className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" />
               <div className="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent" />
               <div className="absolute bottom-6 sm:bottom-8 left-6 sm:left-8">
-                <p className="text-2xl sm:text-3xl font-black text-white">Resurfaçage</p>
+                <p className="text-2xl sm:text-3xl font-black text-white">ResurfaÃ§age</p>
                 <p className="text-amber-400">Stationnement</p>
               </div>
             </div>
@@ -554,7 +554,7 @@ export default function AsphaltPage() {
                     className={`p-6 rounded-2xl border-2 transition-all text-left ${projectType === 'residential' ? 'border-amber-500 bg-amber-500/10' : 'border-white/10 bg-white/5 hover:border-white/30'}`}
                   >
                     <div className="font-bold text-xl mb-2">Residentiel</div>
-                    <div className="text-3xl font-black text-amber-400">$4.50<span className="text-base text-white/60 font-normal">/pied²</span></div>
+                    <div className="text-3xl font-black text-amber-400">$4.50<span className="text-base text-white/60 font-normal">/piedÂ²</span></div>
                     <p className="text-sm text-white/40 mt-2">Entrepie, allee, stationnement</p>
                   </button>
 
@@ -563,7 +563,7 @@ export default function AsphaltPage() {
                     className={`p-6 rounded-2xl border-2 transition-all text-left ${projectType === 'commercial' ? 'border-amber-500 bg-amber-500/10' : 'border-white/10 bg-white/5 hover:border-white/30'}`}
                   >
                     <div className="font-bold text-xl mb-2">Commercial</div>
-                    <div className="text-3xl font-black text-amber-400">$3.50<span className="text-base text-white/60 font-normal">/pied²</span></div>
+                    <div className="text-3xl font-black text-amber-400">$3.50<span className="text-base text-white/60 font-normal">/piedÂ²</span></div>
                     <p className="text-sm text-white/40 mt-2">Parking, grande surface, industriel</p>
                   </button>
                 </div>
@@ -586,7 +586,7 @@ export default function AsphaltPage() {
                         <img src={option.image} alt={option.name} className="w-full h-full object-cover" />
                       </div>
                       <p className="font-bold text-sm">{option.name}</p>
-                      <p className="text-amber-400 text-xs">{option.price.toFixed(2)} $/pied²</p>
+                      <p className="text-amber-400 text-xs">{option.price.toFixed(2)} $/piedÂ²</p>
                     </button>
                   ))}
                 </div>
@@ -670,7 +670,7 @@ export default function AsphaltPage() {
                           const paymentData = {
                             amount: getDepositAmount(),
                             currency: 'CAD',
-                            description: `Acompte Projet Asphalte - ${projectOption} (${projectSqft} p²)`,
+                            description: `Acompte Projet Asphalte - ${projectOption} (${projectSqft} pÂ²)`,
                             metadata: {
                               project_surface: projectSqft,
                               project_type: projectType,
@@ -730,7 +730,7 @@ export default function AsphaltPage() {
                 onClick={() => setShopStep(shopStep - 1)}
                 className="mt-6 w-full py-3 text-white/60 hover:text-white font-medium text-sm"
               >
-                ← Retour a l'etape precedente
+                â† Retour a l'etape precedente
               </button>
             )}
           </div>
