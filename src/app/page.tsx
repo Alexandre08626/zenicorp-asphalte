@@ -136,7 +136,7 @@ export default function AsphaltPage() {
     doc.setTextColor(245, 158, 11);
     doc.setFont('helvetica', 'bold');
     doc.setFontSize(28);
-    doc.text('ZENIVA', centerX, 25, { align: 'center' });
+    doc.text('ZENICORP', centerX, 25, { align: 'center' });
 
     doc.setTextColor(255, 255, 255);
     doc.setFontSize(16);
@@ -204,7 +204,7 @@ export default function AsphaltPage() {
     doc.setDrawColor(245, 158, 11);
     doc.setLineWidth(1);
     doc.line(20, 300, pageWidth - 20, 300);
-    doc.text('zenicorp-asphalte.vercel.app  |  581-748-7017', centerX, 310, { align: 'center' });
+    doc.text('zenicorpasphalte.zeniva.ca  |  581-748-7017', centerX, 310, { align: 'center' });
 
     doc.save(`devis-zeniva-asphalte-${now.getTime()}.pdf`);
   };
@@ -269,7 +269,7 @@ export default function AsphaltPage() {
             </div>
 
             <h1 className="text-6xl sm:text-7xl md:text-9xl font-black leading-[0.85] tracking-tighter mb-6">
-              <span className="block text-white">ZENIVA</span>
+              <span className="block text-white">ZENICORP</span>
               <span className="block text-transparent bg-clip-text bg-gradient-to-r from-amber-400 via-amber-500 to-orange-400">
                 ASPHALT
               </span>
@@ -679,8 +679,8 @@ export default function AsphaltPage() {
                               total_amount: getProjectTotal(),
                               deposit_amount: getDepositAmount()
                             },
-                            success_url: 'https://zenicorp-asphalte.vercel.app/paiement/success',
-                            cancel_url: 'https://zenicorp-asphalte.vercel.app/paiement/annule'
+                            success_url: 'https://zenicorpasphalte.zeniva.ca/paiement/success',
+                            cancel_url: 'https://zenicorpasphalte.zeniva.ca/paiement/annule'
                           };
                           try {
                             const response = await fetch('https://api.zenipay.ca/v1/checkout/sessions', {
