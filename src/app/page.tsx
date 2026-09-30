@@ -763,7 +763,6 @@ export default function AsphaltPage() {
           </div>
           <p className="text-2xl font-black text-amber-400 mb-2">581-748-7017</p>
           <p className="text-white/40">Garantie 1 an - Prix : $3.50 - $4.50/pied carre</p>
-          <p className="text-xs text-white/30 mt-4"><a href="https://zenitech.dev/" className="hover:text-white/60 transition-colors">Site conçu par Zenitech — agence web et IA</a></p>
         </div>
       </footer>
 
